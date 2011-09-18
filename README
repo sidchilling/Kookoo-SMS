@@ -1,0 +1,23 @@
+The file kookoo_send_sms.py can be used to send SMS using the Kookoo service in India.
+Please visit the Kookoo site (www.kookoo.in) for more details about the service.
+
+Sending SMS using the Kookoo service can be done by making a URL call with the neccessary
+parameters to Kookoo. This library is a wrapper written in a functional way to send 
+SMS using the Kookoo service.
+
+In the file, you'll have to replace your api_key (declared as global variables in the top of the file).
+
+The method to send SMS is send_kookoo_sms which takes the following parameters-
+
+- phone_no - The phone number to which you want to send SMS
+- message - The SMS message 
+
+The length of the message is also declared as a global variable at the top of the file. Remember that
+the actual length of the message which you can send is governed by the telecom provider and not by Kookoo.
+
+At the end of the file is a simple test case. You can replace the phone number with the number to which you
+want to send sms and execute the file.
+
+If you encounter any bugs or have enhancement ideas, please contact me at sidchilling@gmail.com
+
+Thanks. I hope this will be useful for some people.

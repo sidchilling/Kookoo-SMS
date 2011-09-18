@@ -21,7 +21,7 @@ class KookooSendSMSException(Exception):
 
 
 def send_kookoo_sms(phone_no = None, message = None):
-    '''This method sends a sms using Kookoo. Raises Exception if SMS not successfully sent
+    '''This method sends a swms using Kookoo. Raises Exception if SMS not successfully sent
     '''
     assert phone_no, 'Phone number cannot be None'
     assert message, 'Message cannot be None'
