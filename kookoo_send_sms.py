@@ -2,7 +2,7 @@
 '''
 
 domain = 'www.kookoo.in'
-api_key = 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX' #Replace this by your api_key
+api_key = 'XXXXXXXXXXXXXXXXXXXXXX' #Replace this by your api_key
 max_message_length = 150 #Replace this by the length by which you want to restrict the message.
                          #Please note the length is restricted by the telecom provider
 
@@ -28,21 +28,19 @@ def send_kookoo_sms(phone_no = None, message = None):
     if len(message) > max_message_length:
 	raise MessageLengthExceededException()
     try:
-	import urllib, httplib
+	import requests
 	from xml.dom import minidom
     except:
-	print 'Required packages: urllib, httplib, xml.doc'
+	print 'Required packages: requests (the one from twitter), xml.doc'
 	exit()
     params = {}
     params['message'] = message
     params['phone_no'] = phone_no
     params['api_key'] = api_key
-    params = urllib.urlencode(params)
-    url = 'http://www.kookoo.in/outbound/outbound_sms.php?' + params
+    url = 'http://www.kookoo.in/outbound/outbound_sms.php'
     try:
-	http_connection = httplib.HTTPConnection(domain)
-	http_connection.request(method = 'GET', url = url)
-	http_response = minidom.parseString(http_connection.getresponse().read())
+	response = requests.get(url = url, params = params)
+	http_response = minidom.parseString(response.content)
 	status = http_response.getElementsByTagName('status')
 	if status is not None and status.length != 0:
 	    status = status[0]
