@@ -42,7 +42,7 @@ def send_kookoo_sms(phone_no = None, message = None):
 	response = requests.get(url = url, params = params)
 	http_response = minidom.parseString(response.content)
 	status = http_response.getElementsByTagName('status')
-	if status is not None and status.length != 0:
+	if status: # Much pythonic as per PEP 8
 	    status = status[0]
 	    if 'success' not in status.toxml():
 		raise KookooSendSMSException(http_response.getElementsByTagName('message')[0].toxml())
