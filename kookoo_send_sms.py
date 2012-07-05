@@ -33,10 +33,11 @@ def send_kookoo_sms(phone_no = None, message = None):
     except:
 	print 'Required packages: requests (the one from twitter), xml.doc'
 	exit()
-    params = {}
-    params['message'] = message
-    params['phone_no'] = phone_no
-    params['api_key'] = api_key
+    params = {
+    	   'message' : message,
+    	   'phone_no' : phone_no,
+    	   'api_key' : api_key
+    	}
     url = 'http://www.kookoo.in/outbound/outbound_sms.php'
     try:
 	response = requests.get(url = url, params = params)
