@@ -55,4 +55,5 @@ def send_kookoo_sms(phone_no = None, message = None):
 if __name__ == '__main__':
     #sends a test sms to the number mentioned. Replace the number with the number you want to send SMS to
     #The number must be 10 digit like 9861098610. No need to add +91 in the beginning
+    # This is main entry point of the test script
     send_kookoo_sms(phone_no = '0000000000', message = 'This is an inbuilt test message from the Python library')
